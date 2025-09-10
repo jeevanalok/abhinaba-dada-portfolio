@@ -21,7 +21,7 @@ function HeroSection() {
             </h3>
             <ul className="space-y-4">
               {projects.map((project, index) => (
-                <li>
+                <li key={index}>
                   <Link key={index} href={project.href}>
                     <Button className="block cursor-pointer hover:bg-white text-white hover:text-black px-8 py-2 rounded border border-white/30 hover:border-transparent transition-all duration-300 ease-out sm:text-sm text-xs font-normal text-left">
                       {project.name}
