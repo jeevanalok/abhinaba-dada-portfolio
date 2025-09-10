@@ -1,10 +1,11 @@
 import profile from "@/assets/profile.svg";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 function HeroSection() {
   const projects = [
-    { name: "Bestosys", href: "#bestosys" },
+    { name: "Bestosys", href: "/projects/bestosys" },
     { name: "UniNet", href: "#uninet" },
     { name: "Gulal Packaging", href: "#gulal" },
     { name: "Other Work", href: "#other" },
@@ -20,10 +21,12 @@ function HeroSection() {
             </h3>
             <ul className="space-y-4">
               {projects.map((project, index) => (
-                <li key={index}>
-                  <Button className="block cursor-pointer hover:bg-white text-white hover:text-black px-8 py-2 rounded border border-white/30 hover:border-transparent transition-all duration-300 ease-out sm:text-sm text-xs font-normal text-left">
-                    {project.name}
-                  </Button>
+                <li>
+                  <Link key={index} href={project.href}>
+                    <Button className="block cursor-pointer hover:bg-white text-white hover:text-black px-8 py-2 rounded border border-white/30 hover:border-transparent transition-all duration-300 ease-out sm:text-sm text-xs font-normal text-left">
+                      {project.name}
+                    </Button>
+                  </Link>
                 </li>
               ))}
             </ul>

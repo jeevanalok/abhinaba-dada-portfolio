@@ -1,10 +1,19 @@
+"use client";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import loader from "@/assets/loader.gif";
+
 function UninetPage() {
+  const router = useRouter();
+  useEffect(() => {
+    router.push(
+      "https://www.behance.net/gallery/231095521/UniNet-Connecting-College-Students"
+    );
+  }, []);
   return (
-    <div>
-      <h1>Uninet Project</h1>
-      <p>Details about the Uninet project...</p>
+    <div className="min-h-screen flex flex-col justify-center items-center">
+      <img src={loader.src} alt="Loading..." className="w-16 h-16" />
     </div>
   );
 }
-
 export default UninetPage;
