@@ -7,8 +7,6 @@ import { Button } from "@/components/ui/button";
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-
-
   const menuItems = [
     { name: "Resume", href: "#resume" },
     { name: "Contact Me", href: "#contact" },
@@ -34,16 +32,14 @@ const Navigation = () => {
 
           {/* Center: Logo */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
-            <h1 className="text-2xl font-bold text-white font-serif italic tracking-wide">
-              अभिनव
-            </h1>
+            <h1 className="text-2xl text-white font-gaj">अभिनव</h1>
           </div>
 
           {/* Right: Menu Items with separator */}
           <div className="hidden lg:flex items-center space-x-6">
             <a
               href={menuItems[0].href}
-              className="text-white hover:bg-secondary hover:text-secondary-foreground px-4 py-2 rounded-lg transition-all duration-300 ease-out font-medium"
+              className="text-white hover:bg-secondary hover:underline px-4 py-2 rounded-lg transition-all duration-300 ease-out font-medium"
             >
               {menuItems[0].name}
             </a>
@@ -53,16 +49,13 @@ const Navigation = () => {
 
             <a
               href={menuItems[1].href}
-              className="text-white hover:bg-secondary hover:text-secondary-foreground px-4 py-2 rounded-lg transition-all duration-300 ease-out font-medium"
+              className="text-white hover:bg-secondary hover:underline px-4 py-2 rounded-lg transition-all duration-300 ease-out font-medium"
             >
               {menuItems[1].name}
             </a>
           </div>
         </nav>
       </header>
-
-
-      
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
