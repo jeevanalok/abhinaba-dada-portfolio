@@ -26,13 +26,15 @@ const Navigation = () => {
           </Button>
 
           {/* Hamburger for desktop (as specified) */}
-          <div className="hidden lg:block">
+          <div className="block ">
             <Menu size={24} className="text-white" />
           </div>
 
           {/* Center: Logo */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
-            <h1 className="text-2xl text-white font-gaj">अभिनव</h1>
+            <a href={"/"}>
+              <h1 className="text-3xl text-white font-gaj">अभिनव</h1>
+            </a>
           </div>
 
           {/* Right: Menu Items with separator */}
