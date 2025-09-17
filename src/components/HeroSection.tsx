@@ -22,6 +22,19 @@ function HeroSection() {
     visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
     hidden: { opacity: 0, x: -20, transition: { duration: 0.4 } },
   };
+
+  const projectDisplayImageContentVariants = {
+    visible: {
+      width: "100%",
+      transition: {
+        duration: 1,
+        ease: [0.43, 0.13, 0.23, 0.96],
+      },
+    },
+    hidden: {
+      width: "0%",
+    },
+  } as const;
   return (
     <div className="md:flex md:flex-col">
       {/* Background Image */}
@@ -74,6 +87,7 @@ function HeroSection() {
                     <motion.div
                       onHoverStart={() => setHoveredProject(project.name)}
                       onHoverEnd={() => setHoveredProject(null)}
+                      className="w-fit"
                     >
                       <Button className="block cursor-pointer hover:bg-white text-[#ccc] hover:text-black px-6 py-2 rounded-[8px] border border-white/30 hover:border-transparent transition-all duration-300 ease-out sm:text-base text-sm font-normal text-left leading-[17.6px]">
                         {project.name}
@@ -149,21 +163,27 @@ function HeroSection() {
               ) : (
                 <motion.div
                   key="project-content"
-                  variants={projectContentVariants}
+                  variants={projectDisplayImageContentVariants}
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  className="max-w-lg"
+                  className="max-w-lg overflow-hidden"
+                  style={{ height: "360px" }} // Fixed height to prevent layout shift
                 >
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#E6DFA6] mb-2 tracking-tight leading-tight">
-                    {projects.find((p) => p.name === hoveredProject)?.name}
-                  </h2>
-                  <p className="text-white text-sm leading-relaxed font-normal">
-                    {
-                      projects.find((p) => p.name === hoveredProject)
-                        ?.description
-                    }
-                  </p>
+                  <div className="w-full h-full rounded-xl overflow-hidden">
+                    <Image
+                      src={
+                        projects.find((p) => p.name === hoveredProject)
+                          ?.displayImage || ""
+                      }
+                      alt={`${
+                        projects.find((p) => p.name === hoveredProject)?.name
+                      } project display`}
+                      width={640}
+                      height={360}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>

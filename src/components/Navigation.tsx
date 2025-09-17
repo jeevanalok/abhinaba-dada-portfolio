@@ -8,8 +8,11 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { name: "Resume", href: "#resume" },
-    { name: "Contact Me", href: "#contact" },
+    {
+      name: "Resume",
+      href: "https://drive.google.com/file/d/19Td9dQnwsZjuHNhvobCKvtzDvcyXpDg-/view?usp=sharing",
+    },
+    { name: "Contact Me", href: "mailto:abhinabadash19@gmail.com" },
   ];
 
   return (
@@ -41,6 +44,7 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center space-x-6">
             <a
               href={menuItems[0].href}
+              target="_blank"
               className="text-white hover:bg-secondary hover:underline px-4 py-2 rounded-lg transition-all duration-300 ease-out font-medium"
             >
               {menuItems[0].name}
