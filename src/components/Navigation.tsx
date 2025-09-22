@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,9 +31,17 @@ const Navigation = () => {
           </Button>
 
           {/* Hamburger for desktop (as specified) */}
-          <div className="block ">
-            <Menu size={24} className="text-white" />
-          </div>
+          <Link
+            href={"https://www.behance.net/abhinabdash1"}
+            className="block cursor-pointer"
+          >
+            <Image
+              src={"/icons/behance.svg"}
+              alt="Behance"
+              width={24}
+              height={24}
+            />
+          </Link>
 
           {/* Center: Logo */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
