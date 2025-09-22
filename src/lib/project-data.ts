@@ -26,7 +26,7 @@ export const projects: Project[] = [
     displayImage: proj1Disp.src,
   },
   {
-    name: "Uninet Research",
+    name: "UniNet Research",
     href: "https://www.behance.net/gallery/229571017/College-UX-Whats-Missing",
     description:
       "A UX study examining college students' communication challenges and opportunities to improve campus connections.",
