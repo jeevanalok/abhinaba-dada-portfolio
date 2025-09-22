@@ -102,7 +102,51 @@ function HeroSection() {
       </aside>
       <main className="relative min-h-screen flex flex-col justify-end items-center">
         <div className="mb-4 flex flex-col md:flex-row items-center md:items-end gap-8 w-full max-w-xl md:w-auto md:max-w-none px-4 pb-8 md:p-0 md:fixed md:bottom-8 md:right-8">
-          {/* Profile Card */}
+          {/* Text Content with AnimatePresence */}
+          <div className="flex-shrink-0 relative">
+            <AnimatePresence mode="wait">
+              {!hoveredProject ? (
+                <motion.div
+                  key="main-content"
+                  variants={mainContentVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  className="max-w-lg"
+                >
+                  <h1 className="text-4xl md:text-5xl font-bold text-[#E6DFA6] mb-2 tracking-tight leading-tight text-right">
+                    Abhinaba Dash
+                  </h1>
+                  <h2 className="text-base md:text-lg text-white font-semibold mb-4 text-right">
+                    Interaction Designer
+                  </h2>
+                  <p className="text-white text-sm leading-relaxed font-normal text-right">
+                    Hi! I call myself a Rangrez of the modern day, someone who
+                    colors human decisions through thoughtful design. I explore
+                    how visuals, structure, and storytelling shape the way we
+                    perceive and interact.
+                  </p>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="project-content"
+                  variants={projectContentVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  className="max-w-lg"
+                >
+                  <h2 className="text-4xl md:text-5xl font-bold text-[#E6DFA6] mb-2 tracking-tight leading-tight text-right">
+                    {projects.find((p) => p.name === hoveredProject)?.name}
+                  </h2>
+                  <p className="text-white text-sm leading-relaxed font-normal text-right">
+                    {projects.find((p) => p.name === hoveredProject)?.description}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           <AnimatePresence mode="wait">
             {!hoveredProject ? (
               <motion.div className="flex-shrink-0">
@@ -119,75 +163,30 @@ function HeroSection() {
             ) : (
               <motion.div
                 key="project-content"
-                variants={projectContentVariants}
+                variants={projectDisplayImageContentVariants}
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
-                className="max-w-lg"
+                className="max-w-lg overflow-hidden"
+                style={{ height: "360px" }}
               >
-                <h2 className="text-4xl md:text-5xl font-bold text-[#E6DFA6] mb-2 tracking-tight leading-tight">
-                  {projects.find((p) => p.name === hoveredProject)?.name}
-                </h2>
-                <p className="text-white text-sm leading-relaxed font-normal">
-                  {projects.find((p) => p.name === hoveredProject)?.description}
-                </p>
+                <div className="w-full h-full rounded-xl overflow-hidden">
+                  <Image
+                    src={
+                      projects.find((p) => p.name === hoveredProject)
+                        ?.displayImage || ""
+                    }
+                    alt={`${
+                      projects.find((p) => p.name === hoveredProject)?.name
+                    } project display`}
+                    width={640}
+                    height={360}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
-
-          {/* Text Content with AnimatePresence */}
-          <div className="flex-shrink-0 relative">
-            <AnimatePresence mode="wait">
-              {!hoveredProject ? (
-                <motion.div
-                  key="main-content"
-                  variants={mainContentVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  className="max-w-lg"
-                >
-                  <h1 className="text-4xl md:text-5xl font-bold text-[#E6DFA6] mb-2 tracking-tight leading-tight">
-                    Abhinaba Dash
-                  </h1>
-                  <h2 className="text-base md:text-lg text-white font-semibold mb-4">
-                    Interaction Designer
-                  </h2>
-                  <p className="text-white text-sm leading-relaxed font-normal">
-                    Hi! I call myself a Rangrez of the modern day, someone who
-                    colors human decisions through thoughtful design. I explore
-                    how visuals, structure, and storytelling shape the way we
-                    perceive and interact.
-                  </p>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="project-content"
-                  variants={projectDisplayImageContentVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  className="max-w-lg overflow-hidden"
-                  style={{ height: "360px" }} // Fixed height to prevent layout shift
-                >
-                  <div className="w-full h-full rounded-xl overflow-hidden">
-                    <Image
-                      src={
-                        projects.find((p) => p.name === hoveredProject)
-                          ?.displayImage || ""
-                      }
-                      alt={`${
-                        projects.find((p) => p.name === hoveredProject)?.name
-                      } project display`}
-                      width={640}
-                      height={360}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
         </div>
       </main>
     </div>
