@@ -12,31 +12,33 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: "Bestosys",
-    href: "/projects/bestosys",
+    href: "https://www.behance.net/gallery/235110361/Bestosys-Saas-For-Dentists",
+    description: "Redesigning the end-to-end healthcare management experience",
+    backgroundImage: "/projects/bestosys-bg.jpg",
+    displayImage: "/projects/bestosys-front.jpg",
+  },
+  {
+    name: "UniNet",
+    href: "https://www.behance.net/gallery/231095521/UniNet-Connecting-College-Students",
     description:
-      "A modern ERP solution designed to streamline business operations",
+      "Addresses college communication gaps and improves student access to peer and senior guidance.",
     backgroundImage: proj1.src,
     displayImage: proj1Disp.src,
   },
   {
-    name: "UniNet",
-    href: "/projects/uninet",
-    description: "A unified platform for educational institutions",
-    backgroundImage: "/projects/uninet-bg.jpg",
-    displayImage: "/projects/uninet-disp.jpg",
+    name: "Uninet Research",
+    href: "https://www.behance.net/gallery/229571017/College-UX-Whats-Missing",
+    description:
+      "A UX study examining college students' communication challenges and opportunities to improve campus connections.",
+    backgroundImage: "/projects/uninet-research-bg.jpg",
+    displayImage: "/projects/uninet-research-front.jpg",
   },
   {
-    name: "Gulal Packaging",
-    href: "#gulal",
-    description: "Innovative packaging solutions for modern businesses",
-    backgroundImage: "/projects/gulal-bg.jpg",
-    displayImage: "/projects/gulal-disp.jpg",
-  },
-  {
-    name: "Other Work",
-    href: "#other",
-    description: "Explore more of my creative projects and experiments",
-    backgroundImage: "/projects/other-bg.jpg",
-    displayImage: "/projects/other-disp.jpg",
+    name: "Nesties",
+    href: "https://www.behance.net/gallery/235078275/Nesties-Finding-Roomates",
+    description:
+      "Nesties connects people relocating to unfamiliar cities with roommates who could become their besties.",
+    backgroundImage: "/projects/nesties-bg.jpg",
+    displayImage: "/projects/nesties-front.jpg",
   },
 ];
