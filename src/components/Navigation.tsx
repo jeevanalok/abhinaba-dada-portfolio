@@ -33,14 +33,9 @@ const Navigation = () => {
           {/* Hamburger for desktop (as specified) */}
           <Link
             href={"https://www.behance.net/abhinabdash1"}
-            className="block cursor-pointer"
+            className="block cursor-pointer text-white hover:text-white/80 transition-colors duration-300"
           >
-            <Image
-              src={"/icons/behance.svg"}
-              alt="Behance"
-              width={24}
-              height={24}
-            />
+            Behance Profile
           </Link>
 
           {/* Center: Logo */}

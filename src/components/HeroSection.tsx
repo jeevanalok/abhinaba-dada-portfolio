@@ -139,7 +139,7 @@ function HeroSection() {
                   <h2 className="text-4xl md:text-5xl font-bold text-[#E6DFA6] mb-2 tracking-tight leading-tight text-right">
                     {projects.find((p) => p.name === hoveredProject)?.name}
                   </h2>
-                  <p className="text-white text-sm leading-relaxed font-normal text-right">
+                  <p className="text-white text-sm leading-relaxed font-normal text-right max-w-sm">
                     {projects.find((p) => p.name === hoveredProject)?.description}
                   </p>
                 </motion.div>
