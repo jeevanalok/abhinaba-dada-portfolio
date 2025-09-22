@@ -22,8 +22,8 @@ export const projects: Project[] = [
     href: "https://www.behance.net/gallery/231095521/UniNet-Connecting-College-Students",
     description:
       "Addresses college communication gaps and improves student access to peer and senior guidance.",
-    backgroundImage: proj1.src,
-    displayImage: proj1Disp.src,
+    backgroundImage: "/projects/uninet-bg.jpg",
+    displayImage: "/projects/uninet-front.jpg",
   },
   {
     name: "UniNet Research",
@@ -40,5 +40,12 @@ export const projects: Project[] = [
       "Nesties connects people relocating to unfamiliar cities with roommates who could become their besties.",
     backgroundImage: "/projects/nesties-bg.jpg",
     displayImage: "/projects/nesties-front.jpg",
+  },
+  {
+    name: "Other Works",
+    href: "https://www.behance.net/abhinabdash1",
+    description: "Hungry for more? Click to go down the rabbit hole.",
+    backgroundImage: "/projects/other-work-bg.jpg",
+    displayImage: "/projects/other-work-front.jpg",
   },
 ];

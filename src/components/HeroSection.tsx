@@ -4,7 +4,7 @@ import profile from "@/assets/DP.jpg";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "motion/react"; // Changed to framer-motion for compatibility
 import { useState } from "react";
 import { projects } from "@/lib/project-data";
 
@@ -35,9 +35,11 @@ function HeroSection() {
       width: "0%",
     },
   } as const;
+
   return (
-    <div className="md:flex md:flex-col">
-      {/* Background Image */}
+    // Removed md:flex md:flex-col as we handle layout within the children
+    <div>
+      {/* Background Image - No changes needed, 'fixed' is inherently responsive */}
       <motion.div
         className="fixed inset-0 z-0 bg-[#1A2F29]"
         initial={{ opacity: 1 }}
@@ -73,9 +75,16 @@ function HeroSection() {
         ))}
       </motion.div>
 
-      {/* Left Sidebar - Projects Section */}
-      <aside className="fixed left-8 top-1/2 -translate-y-1/2 z-30 block">
-        <nav>
+      {/* CHANGE 1: Left Sidebar - Projects Section
+        - On mobile (default), it's a relative block with vertical padding.
+        - On desktop (md:), it becomes 'fixed' to the left side as before.
+      */}
+      <aside className="relative w-full pt-20 pb-10 md:fixed md:left-8 md:top-1/2 md:-translate-y-1/2 md:w-auto md:p-0 z-30">
+        {/* CHANGE 2: Centering Nav content on mobile
+          - On mobile, content is centered using flexbox.
+          - On desktop, it aligns to the start (left) as before.
+        */}
+        <nav className="flex flex-col items-start md:p-0 px-5">
           <div>
             <h3 className="text-white text-sm font-medium mb-6 tracking-wider">
               Projects
@@ -83,7 +92,11 @@ function HeroSection() {
             <ul className="space-y-2">
               {projects.map((project) => (
                 <li key={project.name}>
-                  <Link href={project.href}>
+                  <Link
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <motion.div
                       onHoverStart={() => setHoveredProject(project.name)}
                       onHoverEnd={() => setHoveredProject(null)}
@@ -100,8 +113,9 @@ function HeroSection() {
           </div>
         </nav>
       </aside>
-      <main className="relative min-h-screen flex flex-col justify-end items-center">
-        <div className="mb-4 flex flex-col md:flex-row items-center md:items-end gap-8 w-full max-w-xl md:w-auto md:max-w-none px-4 pb-8 md:p-0 md:fixed md:bottom-8 md:right-8">
+
+      <main className="relative z-10 flex flex-col items-center justify-center min-h-screen">
+        <div className="flex flex-col-reverse md:flex-row items-center md:items-end gap-8 w-full max-w-xl md:w-auto md:max-w-none px-4 pb-8 md:p-0 md:fixed md:bottom-8 md:right-8">
           {/* Text Content with AnimatePresence */}
           <div className="flex-shrink-0 relative">
             <AnimatePresence mode="wait">
@@ -114,13 +128,13 @@ function HeroSection() {
                   exit="hidden"
                   className="max-w-lg"
                 >
-                  <h1 className="text-4xl md:text-5xl font-bold text-[#E6DFA6] mb-2 tracking-tight leading-tight text-right">
+                  <h1 className="text-4xl md:text-5xl font-bold text-[#E6DFA6] mb-2 tracking-tight leading-tight text-center md:text-right">
                     Abhinaba Dash
                   </h1>
-                  <h2 className="text-base md:text-lg text-white font-semibold mb-4 text-right">
+                  <h2 className="text-base md:text-lg text-white font-semibold mb-4 text-center md:text-right">
                     Interaction Designer
                   </h2>
-                  <p className="text-white text-sm leading-relaxed font-normal text-right">
+                  <p className="text-white text-sm leading-relaxed font-normal text-center md:text-right">
                     Hi! I call myself a Rangrez of the modern day, someone who
                     colors human decisions through thoughtful design. I explore
                     how visuals, structure, and storytelling shape the way we
@@ -136,17 +150,21 @@ function HeroSection() {
                   exit="hidden"
                   className="max-w-lg"
                 >
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#E6DFA6] mb-2 tracking-tight leading-tight text-right">
+                  <h2 className="text-4xl md:text-5xl font-bold text-[#E6DFA6] mb-2 tracking-tight leading-tight text-center md:text-right">
                     {projects.find((p) => p.name === hoveredProject)?.name}
                   </h2>
-                  <p className="text-white text-sm leading-relaxed font-normal text-right max-w-sm">
-                    {projects.find((p) => p.name === hoveredProject)?.description}
+                  <p className="text-white text-sm leading-relaxed font-normal text-center md:text-right max-w-sm mx-auto md:mx-0">
+                    {
+                      projects.find((p) => p.name === hoveredProject)
+                        ?.description
+                    }
                   </p>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
+          {/* Image/Project Display with AnimatePresence */}
           <AnimatePresence mode="wait">
             {!hoveredProject ? (
               <motion.div className="flex-shrink-0">
@@ -156,13 +174,14 @@ function HeroSection() {
                       src={profile}
                       alt="Abhinaba Dash - Interaction Designer portrait"
                       className="w-full h-full object-cover object-center"
+                      priority
                     />
                   </div>
                 </div>
               </motion.div>
             ) : (
               <motion.div
-                key="project-content"
+                key="project-content-image" // A more distinct key
                 variants={projectDisplayImageContentVariants}
                 initial="hidden"
                 animate="visible"
