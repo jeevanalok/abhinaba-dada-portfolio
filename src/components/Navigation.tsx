@@ -2,7 +2,7 @@ const Navigation = () => {
   const menuItems = [
     {
       name: "Resume",
-      href: "https://drive.google.com/file/d/19Td9dQnwsZjuHNhvobCKvtzDvcyXpDg-/view?usp=sharing",
+      href: "https://drive.google.com/drive/folders/17mwB-J3FojRwZC_vRAg8JYu05PP2MS6g?usp=sharing",
     },
     { name: "Contact Me", href: "mailto:abhinabadash19@gmail.com" },
   ];
