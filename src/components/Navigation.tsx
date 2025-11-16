@@ -1,4 +1,26 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 const Navigation = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Set threshold - header becomes solid after scrolling 50px
+      const scrollThreshold = 50;
+      setIsScrolled(window.scrollY > scrollThreshold);
+    };
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Check initial scroll position
+    handleScroll();
+
+    // Cleanup
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const menuItems = [
     {
       name: "Resume",
@@ -10,7 +32,11 @@ const Navigation = () => {
   return (
     <>
       {/* Top Bar - Exact positioning */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-8 py-6">
+      <header
+        className={`fixed top-0 left-0 right-0 z-48 px-8 py-4 transition-all duration-300 ease-in-out ${
+          isScrolled ? "bg-primary/80 backdrop-blur-xs" : "bg-transparent"
+        }`}
+      >
         <nav className="flex items-center justify-between max-w-[1920px] mx-auto">
           {/* Center: Logo */}
           <div className="">
@@ -24,7 +50,7 @@ const Navigation = () => {
             <a
               href={menuItems[0].href}
               target="_blank"
-              className="text-white hover:bg-secondary hover:underline px-4 py-2 rounded-lg transition-all duration-300 ease-out font-medium"
+              className="text-white hover:text-accent hover:underline  px-4 py-2 rounded-lg transition-all duration-300 font-medium"
             >
               {menuItems[0].name}
             </a>
@@ -34,7 +60,7 @@ const Navigation = () => {
 
             <a
               href={menuItems[1].href}
-              className="text-white hover:bg-secondary hover:underline px-4 py-2 rounded-lg transition-all duration-300 ease-out font-medium"
+              className="text-white hover:text-accent hover:underline  px-4 py-2 rounded-lg transition-all duration-300 font-medium"
             >
               {menuItems[1].name}
             </a>

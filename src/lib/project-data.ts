@@ -1,51 +1,68 @@
-import proj1 from "@/assets/projects/bestosys_bg.jpg";
-import proj1Disp from "@/assets/projects/bestosys_disp.jpg";
-
 export interface Project {
-  name: string;
-  href: string;
+  id: number;
+  title: string;
+  tag: string;
+  subtitle: string;
   description: string;
-  backgroundImage: string;
-  displayImage: string;
+  image: string;
+  featured: boolean;
+  url: string;
 }
 
 export const projects: Project[] = [
   {
-    name: "Bestosys",
-    href: "https://www.behance.net/gallery/235110361/Bestosys-Saas-For-Dentists",
-    description: "Redesigning the end-to-end healthcare management experience",
-    backgroundImage: "/projects/bestosys-bg.jpg",
-    displayImage: "/projects/bestosys-front.jpg",
-  },
-  {
-    name: "UniNet",
-    href: "https://www.behance.net/gallery/231095521/UniNet-Connecting-College-Students",
+    id: 1,
+    title: "Bestosys",
+    tag: "Healthcare SaaS",
+    subtitle: "Redesigning the end-to-end healthcare management experience",
     description:
-      "Addresses college communication gaps and improves student access to peer and senior guidance.",
-    backgroundImage: "/projects/uninet-bg.jpg",
-    displayImage: "/projects/uninet-front.jpg",
+      "A comprehensive SaaS platform designed for dentists, transforming how dental practices manage their operations, patient interactions, and clinical workflows through intuitive design and streamlined experiences.",
+    image: "/projects/bestosys-front.jpg",
+    url: "https://www.behance.net/gallery/235110361/Bestosys-Saas-For-Dentists",
+    featured: true,
   },
   {
-    name: "UniNet Research",
-    href: "https://www.behance.net/gallery/229571017/College-UX-Whats-Missing",
+    id: 2,
+    title: "UniNet",
+    tag: "Social Platform",
+    subtitle: "Connecting College Students",
     description:
-      "A UX study examining college students' communication challenges and opportunities to improve campus connections.",
-    backgroundImage: "/projects/uninet-research-bg.jpg",
-    displayImage: "/projects/uninet-research-front.jpg",
+      "A platform that addresses college communication gaps and improves student access to peer and senior guidance, fostering meaningful connections and knowledge sharing across campus communities.",
+    image: "/projects/uninet-front.jpg",
+    url: "https://www.behance.net/gallery/231095521/UniNet-Connecting-College-Students",
+    featured: true,
   },
   {
-    name: "Nesties",
-    href: "https://www.behance.net/gallery/235078275/Nesties-Finding-Roomates",
+    id: 3,
+    title: "UniNet Research",
+    tag: "UX Research",
+    subtitle: "College UX: What's Missing?",
     description:
-      "Nesties connects people relocating to unfamiliar cities with roommates who could become their besties.",
-    backgroundImage: "/projects/nesties-bg.jpg",
-    displayImage: "/projects/nesties-front.jpg",
+      "A comprehensive UX study examining college students' communication challenges and opportunities to improve campus connections, revealing insights that drive better educational experiences.",
+    image: "/projects/uninet-research-front.jpg",
+    url: "https://www.behance.net/gallery/229571017/College-UX-Whats-Missing",
+    featured: false,
   },
   {
-    name: "Other Works",
-    href: "https://www.behance.net/abhinabdash1",
-    description: "Hungry for more? Click to go down the rabbit hole.",
-    backgroundImage: "/projects/other-work-bg.jpg",
-    displayImage: "/projects/other-work-front.jpg",
+    id: 4,
+    title: "Nesties",
+    tag: "Social Connection",
+    subtitle: "Finding Roommates Who Become Besties",
+    description:
+      "Nesties connects people relocating to unfamiliar cities with compatible roommates, transforming the daunting process of finding housing into an opportunity to build lasting friendships.",
+    image: "/projects/nesties-front.jpg",
+    url: "https://www.behance.net/gallery/235078275/Nesties-Finding-Roomates",
+    featured: false,
   },
+  // {
+  //   id: 5,
+  //   title: "Other Works",
+  //   tag: "Portfolio Collection",
+  //   subtitle: "Hungry for more? Click to go down the rabbit hole.",
+  //   description:
+  //     "An exploration of additional projects and design experiments that showcase diverse creative approaches, problem-solving methodologies, and design thinking across various domains.",
+  //   image: "/projects/other-work-front.jpg",
+  //   url: "https://www.behance.net/abhinabdash1",
+  //   featured: false,
+  // },
 ];

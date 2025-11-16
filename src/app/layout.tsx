@@ -35,15 +35,15 @@ const productSans = localFont({
   variable: "--font-productsans",
 });
 
-const clashDisplay = localFont({
+const Englisch = localFont({
   src: [
     {
-      path: "./fonts/ClashDisplay-Semibold.otf",
-      weight: "600",
+      path: "./fonts/Englisch-Bold.otf",
+      weight: "700",
       style: "normal",
     },
   ],
-  variable: "--font-clashDisplay",
+  variable: "--font-englisch",
 });
 export const metadata: Metadata = {
   title: "Abhinaba Dash - Portfolio",
@@ -58,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${Gajraj_OneFont.variable} ${productSans.variable} ${clashDisplay.variable} font-sans antialiased`}
+        className={`${Gajraj_OneFont.variable} ${productSans.variable} ${Englisch.variable} font-sans antialiased`}
       >
         {children}
       </body>
