@@ -5,7 +5,6 @@ import { motion, useInView } from "motion/react";
 import { projects } from "@/lib/project-data";
 import Image from "next/image";
 
-
 function FeaturedWorks() {
   const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: true });
@@ -32,6 +31,10 @@ function FeaturedWorks() {
     },
   } as const;
 
+  const handleProjectClick = (url: string) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -55,13 +58,15 @@ function FeaturedWorks() {
           {/* Featured Project */}
           <motion.div
             variants={itemVariants}
-            className="bg-white rounded overflow-hidden shadow-sm border border-primary/20"
+            onClick={() => handleProjectClick(projects[0].url)}
+            className="bg-white rounded overflow-hidden shadow-sm border border-primary/20 hover:cursor-pointer"
           >
             <div className="grid md:grid-cols-2 gap-0">
-              <div className="overflow-hidden">
+              <div className="overflow-hidden relative">
                 <Image
                   src={projects[0].image}
                   alt={projects[0].title}
+                  fill
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -90,12 +95,14 @@ function FeaturedWorks() {
               <motion.div
                 key={project.id}
                 variants={itemVariants}
-                className="bg-white border border-primary/20 rounded overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+                onClick={() => handleProjectClick(project.url)}
+                className="bg-white border border-primary/20 rounded overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 hover:cursor-pointer"
               >
-                <div className="h-48 overflow-hidden">
+                <div className="h-48 relative overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
+                    fill
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
