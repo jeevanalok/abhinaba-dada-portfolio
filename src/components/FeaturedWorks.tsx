@@ -59,7 +59,7 @@ function FeaturedWorks() {
           <motion.div
             variants={itemVariants}
             onClick={() => handleProjectClick(projects[0].url)}
-            className="bg-white rounded overflow-hidden shadow-sm border border-primary/20 hover:cursor-pointer"
+            className="bg-white rounded-lg md:rounded-xl overflow-hidden shadow-sm border border-primary/20 hover:cursor-pointer"
           >
             <div className="grid md:grid-cols-2 gap-0">
               <div className="overflow-hidden relative">
@@ -72,10 +72,10 @@ function FeaturedWorks() {
               </div>
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <div className="flex items-end gap-3 mb-3 justify-between">
-                  <h2 className="text-3xl text-primary font-semibold font-englisch tracking-wider  ">
+                  <h2 className="text-3xl font-englisch tracking-wider text-black font-semibold">
                     {projects[0].title}
                   </h2>
-                  <span className="px-4 py-3 text-xs border border-primary/20 text-[#504e3c] leading-none font-bold bg-accent/30 rounded-full tracking-wide">
+                  <span className="px-3 py-2 text-xs border border-primary/20 text-[#504e3c] leading-none font-bold bg-accent/30 rounded-full tracking-wide">
                     {projects[0].tag}
                   </span>
                 </div>
@@ -96,7 +96,7 @@ function FeaturedWorks() {
                 key={project.id}
                 variants={itemVariants}
                 onClick={() => handleProjectClick(project.url)}
-                className="bg-white border border-primary/20 rounded overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 hover:cursor-pointer"
+                className="bg-white border border-primary/20 rounded-lg md:rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 hover:cursor-pointer"
               >
                 <div className="h-48 relative overflow-hidden">
                   <Image

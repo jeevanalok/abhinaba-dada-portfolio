@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ShowReelSection from "@/components/ShowReelSection";
 import FeaturedWorks from "@/components/FeaturedWorks";
+import Footer from "@/components/Footer";
 // import { useState } from "react";
 // import LoadingScreen from "@/components/LoadingScreen";
 
@@ -24,6 +25,7 @@ export default function Home() {
       <HeroSection />
       <ShowReelSection />
       <FeaturedWorks />
+      <Footer />
       {/* </motion.div> */}
     </>
   );
