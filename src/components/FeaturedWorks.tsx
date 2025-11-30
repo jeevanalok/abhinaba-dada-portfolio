@@ -120,7 +120,7 @@ function FeaturedWorks({
                 </div>
                 <div className="p-6">
                   <div className="flex items-end justify-between gap-2 md:mb-1 my-1">
-                    <h3 className="text-2xl lg:text-3xl font-englisch tracking-wider text-black font-semibold ">
+                    <h3 className="text-3xl font-englisch tracking-wider text-black font-semibold ">
                       {project.title}
                     </h3>
                     <span className="px-3 py-2 text-xs border border-primary/20 text-[#504e3c] leading-none font-bold bg-accent/30 rounded-full tracking-wide">
