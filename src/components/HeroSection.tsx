@@ -15,12 +15,12 @@ function HeroSection() {
   return (
     // Removed md:flex md:flex-col as we handle layout within the children
     <div
-      className="min-h-screen bg-center flex items-center justify-center bg-[#1A2F29]"
+      className="min-h-screen bg-center flex items-center justify-center bg-[#1A2F29] relative "
       style={{ backgroundImage: `url(${pattern.src})` }}
     >
-      <div className="flex flex-col-reverse md:flex-row items-center md:items-end gap-8 w-full max-w-xl md:w-auto md:max-w-none px-4 pb-8 md:p-0 md:absolute md:bottom-8 md:right-8">
+      <div className="flex flex-col md:flex-row justify-end items-start md:items-end gap-8 w-full max-w-xl md:w-auto md:max-w-none px-4 pb-8 md:p-0 md:absolute md:bottom-8 md:right-8">
         <motion.div className="flex-shrink-0">
-          <div className="w-48 md:w-[260px] xl:w-[380px] xl:h-[420px] max-w-xs aspect-[4/5] bg-card rounded-2xl shadow-card overflow-hidden">
+          <div className="w-3/4 md:w-[260px] xl:w-[380px] xl:h-[420px] max-w-xs aspect-[4/5] bg-card rounded-2xl shadow-card overflow-hidden">
             <div className="w-full h-full">
               <Image
                 src={profile}
@@ -40,16 +40,16 @@ function HeroSection() {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="max-w-lg"
+            className="max-w-lg w-full"
             transition={{ delay: 1.5 }}
           >
-            <h1 className="text-4xl md:text-5xl tracking-wide font-englisch font-bold text-accent mb-2 leading-tight text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl tracking-wide font-englisch font-bold text-accent mb-2 leading-tight text-left">
               Abhinaba Dash
             </h1>
-            <h2 className="text-base md:text-lg text-white font-semibold mb-4 text-center md:text-left">
+            <h2 className="text-base md:text-lg text-white font-semibold mb-4 text-left">
               Interaction Designer
             </h2>
-            <p className="text-white text-sm leading-relaxed font-normal text-center md:text-left">
+            <p className="text-white text-sm leading-relaxed font-normal text-left">
               Hi! I call myself a Rangrez of the modern day, someone who colors
               human decisions through thoughtful design. I explore how visuals,
               structure, and storytelling shape the way we perceive and

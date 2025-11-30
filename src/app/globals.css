@@ -157,6 +157,11 @@
 
     --accent: #e6dfa6;
     --primary: #1A2F29;
+    cursor: none;
+
+    video {
+      cursor: pointer;
+    }
   }
 
   body {

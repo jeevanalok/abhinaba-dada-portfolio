@@ -56,7 +56,7 @@ const Navigation = () => {
             </a>
 
             {/* Vertical separator line */}
-            <div className="w-px h-4 bg-white-text/30"></div>
+            <div className="w-px h-4 bg-white/30"></div>
 
             <a
               href={menuItems[1].href}

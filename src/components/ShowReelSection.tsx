@@ -4,7 +4,13 @@ import { useRef, useEffect, useState } from "react";
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 
-function ShowReelSection() {
+function ShowReelSection({
+  setCursorState,
+}: {
+  setCursorState?: React.Dispatch<
+    React.SetStateAction<"default" | "showreel" | "project" | "footer">
+  >;
+}) {
   const ref = useRef<HTMLElement | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -51,6 +57,8 @@ function ShowReelSection() {
       <motion.div
         style={{ scale, y }}
         className="mx-5 max-w-7xl aspect-video overflow-hidden rounded-lg md:rounded-xl shadow-xl md:shadow-2xl"
+        onMouseEnter={() => setCursorState && setCursorState("showreel")}
+        onMouseLeave={() => setCursorState && setCursorState("default")}
       >
         <video
           src="/showreel.mp4"
@@ -60,8 +68,6 @@ function ShowReelSection() {
           controls={true}
           controlsList={"nodownload noremoteplayback"}
           preload="auto"
-          muted
-          loop
           // poster="/showreel-poster.jpg"
         />
       </motion.div>

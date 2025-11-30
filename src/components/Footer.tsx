@@ -5,7 +5,13 @@ import { motion } from "motion/react";
 
 import pattern from "@/assets/pattern.svg";
 
-export default function DesignerFooter() {
+export default function DesignerFooter({
+  setCursorState,
+}: {
+  setCursorState?: React.Dispatch<
+    React.SetStateAction<"default" | "showreel" | "project" | "footer">
+  >;
+}) {
   const quirkySayings = [
     "If something isn't centered, please tilt your head to the left.",
     "If you see a pixel out of place, no you didn't",
@@ -31,18 +37,13 @@ export default function DesignerFooter() {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
-  };
-
   return (
     <footer
-      className="w-full bg-[#1A2F29] text-accent py-12 px-6"
+      // Modified padding for better spacing across mobile (px-4) to desktop (py-16)
+      className="w-full bg-[#1A2F29] text-accent py-12 md:py-16 px-4 sm:px-6 lg:px-8"
       style={{ backgroundImage: `url(${pattern.src})` }}
+      onMouseEnter={() => setCursorState && setCursorState("footer")}
+      onMouseLeave={() => setCursorState && setCursorState("default")}
     >
       <motion.div
         className="max-w-4xl mx-auto"
@@ -52,15 +53,18 @@ export default function DesignerFooter() {
         viewport={{ once: true }}
       >
         {/* Quirky Message */}
-        <div className="text-center mb-4">
-          <p className="text-lg md:text-xl font-light text-accent italic">
+        {/* Added responsive margin bottom */}
+        <div className="text-center mb-4 md:mb-6">
+          {/* Scaled text size: base for mobile, lg for tablet, xl for desktop */}
+          <p className="text-base sm:text-lg md:text-xl font-light text-accent italic leading-relaxed">
             {saying}
           </p>
         </div>
 
         {/* Copyright */}
         <div className="text-center">
-          <p className="text-sm text-accent tracking-wider">
+          {/* Scaled text size: xs for mobile, sm for larger screens */}
+          <p className="text-xs sm:text-sm text-accent tracking-wider">
             © {new Date().getFullYear()} · Designed with caffeine and
             overthinking
           </p>
