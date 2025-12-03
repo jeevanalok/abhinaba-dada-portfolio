@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 
 import pattern from "@/assets/pattern.svg";
+import { Mail, PhoneCall } from "lucide-react";
 
 export default function DesignerFooter({
   setCursorState,
@@ -40,7 +41,7 @@ export default function DesignerFooter({
   return (
     <footer
       // Modified padding for better spacing across mobile (px-4) to desktop (py-16)
-      className="w-full bg-[#1A2F29] text-accent py-12 md:py-16 px-4 sm:px-6 lg:px-8"
+      className="w-full bg-[#1A2F29] text-accent py-10 px-4 sm:px-6 lg:px-8"
       style={{ backgroundImage: `url(${pattern.src})` }}
       onMouseEnter={() => setCursorState && setCursorState("footer")}
       onMouseLeave={() => setCursorState && setCursorState("default")}
@@ -54,11 +55,25 @@ export default function DesignerFooter({
       >
         {/* Quirky Message */}
         {/* Added responsive margin bottom */}
-        <div className="text-center mb-4 md:mb-6">
+        <div className="text-center mb-2">
           {/* Scaled text size: base for mobile, lg for tablet, xl for desktop */}
           <p className="text-base sm:text-lg md:text-xl font-light text-accent italic leading-relaxed">
             {saying}
           </p>
+        </div>
+        <div className="flex flex-row justify-center gap-5 text-xs sm:text-sm mb-8 text-accent">
+          <a
+            href="mailto:abhinabadash19@gmail.com"
+            className="text-xs sm:text-sm font-medium tracking-wide underline-offset-4 hover:underline transition-all hover:opacity-80"
+          >
+            ✉ abhinabadash19@gmail.com
+          </a>
+          <a
+            href="tel:+918917513679"
+            className="text-xs sm:text-sm font-medium tracking-wide underline-offset-4 hover:underline transition-all hover:opacity-80"
+          >
+            ☎ +91 891 751 3679
+          </a>
         </div>
 
         {/* Copyright */}

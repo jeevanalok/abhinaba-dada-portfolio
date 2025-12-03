@@ -14,7 +14,7 @@ import {
   CursorFollow,
 } from "@/components/ui/shadcn-io/animated-cursor";
 import { AnimatePresence, motion } from "motion/react";
-import { AudioLines } from "lucide-react";
+import { Play } from "lucide-react";
 
 // import LoadingScreen from "@/components/LoadingScreen";
 
@@ -162,7 +162,7 @@ export default function Home() {
                 exit={{ scale: 0.5, opacity: 0 }}
                 className="px-3 py-2 text-xs border flex flex-row items-center gap-2 justify-center border-primary/20 text-[#504e3c] leading-none font-bold bg-accent rounded-full tracking-wide"
               >
-                <AudioLines />
+                <Play />
                 <span>Play Video</span>
               </motion.div>
             )}
