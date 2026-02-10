@@ -12,7 +12,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Bestosys",
+    title: "Alveolar",
     tag: "Healthcare SaaS",
     subtitle: "Redesigning the end-to-end healthcare management experience",
     description:
