@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Gajraj_One } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import ClarityInit from "@/components/analytics/Clarityinit";
+
 
 const Gajraj_OneFont = Gajraj_One({
   subsets: ["devanagari", "latin"],
@@ -60,6 +62,7 @@ export default function RootLayout({
       <body
         className={`${Gajraj_OneFont.variable} ${productSans.variable} ${Englisch.variable} font-sans antialiased`}
       >
+        <ClarityInit />
         {children}
       </body>
     </html>

@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 
 import pattern from "@/assets/pattern.svg";
-import { Mail, PhoneCall } from "lucide-react";
 
 export default function DesignerFooter({
   setCursorState,
